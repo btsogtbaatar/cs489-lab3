@@ -1,4 +1,4 @@
-@startuml "ASD Class Diagram"
+@startuml "ASDClassDiagram"
 class Appointment {
     Patient patient
     LocalDateTime datetime
