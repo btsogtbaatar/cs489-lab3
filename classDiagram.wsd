@@ -1,0 +1,80 @@
+@startuml "ASD Class Diagram"
+class Appointment {
+    Patient patient
+    LocalDateTime datetime
+    Dentist dentist
+    Surgery surgery
+    Status status
+}
+
+class OfficeManager {
+    User user
+
+    void registerDentist()
+    void enrollPatient()
+    void bookAppointment()
+}
+
+class Patient {
+    String firstName
+    String lastName
+    String phoneNumber
+    String email
+    String mailAddress
+    String dateOfBirth
+    User user
+
+    void requestAppointment()
+    void cancelAppointment()
+    void changeAppointment()
+    void viewAppointments()
+}
+
+class Dentist {
+    Long id
+    String firstName
+    String lastName
+    String phoneNumber
+    String email
+    String specialization
+    User user
+
+    void viewAppointments()
+}
+
+class User {
+    String username
+    String password
+    Role[] roles
+
+    void sigin()
+    void signout()
+}
+
+class Role {
+    String name
+}
+
+class Surgery {
+    String name
+    String address
+    String phoneNumber
+}
+
+enum Status {
+    REQUESTED
+    CANCELLED
+    APPROVED
+}
+
+OfficeManager "1" -u- "1" User
+Dentist "1" -u- "1" User
+Patient "1" -u- "1" User
+
+Appointment "1..*" -u- "1" Dentist
+Appointment "1..*" -u- "1" Patient
+Appointment "1..*" -u-> "1" Surgery
+Appointment "1" -u-> "1..*" Status
+
+User "1" -> "1..*" Role
+@enduml

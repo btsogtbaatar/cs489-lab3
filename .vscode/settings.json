@@ -1,0 +1,12 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "untitled"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file"
+        }
+    ]
+}
