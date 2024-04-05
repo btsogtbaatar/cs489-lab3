@@ -76,5 +76,5 @@ Appointment "1..*" -u- "1" Patient
 Appointment "1..*" -u-> "1" Surgery
 Appointment "1" -u-> "1..*" Status
 
-User "1" -> "1..*" Role
+User "1" -d-> "1..*" Role
 @enduml
